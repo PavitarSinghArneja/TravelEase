@@ -1,0 +1,110 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.cityName }}, {{ $json.body.startDate }}. {{ $json.body.endDate }} , {{ $json.body.numberOfDays }} , {{ $json.body.activities }}, {{ $json.body.foodDrinks }}, {{ $json.body.entertainment }}, {{ $json.body.sightseeing }}, {{ $json.body.relaxation }}, {{ $json.body.relaxation }} , {{ $json.body.allInterests }}",
+        "options": {
+          "systemMessage": "=You are an expert travel planner creating a personalized itinerary. Generate a detailed, day-by-day travel plan based on the following information:\n\n**TRIP DETAILS:**\n- Destination City: [CITY_NAME]\n- Travel Dates: [START_DATE] to [END_DATE] \n- Trip Duration: [NUMBER_OF_DAYS] days\n- Trip Name: [TRIP_NAME]\n\n**USER INTERESTS:**\n- Activities & Adventures: [ACTIVITIES_LIST] (e.g., Beach, Sports, Adventure Sports, Hiking, Photography, Shopping)\n- Food & Drinks: [FOOD_DRINKS_LIST] (e.g., Coffee Culture, Street Food, Local Specialties, Fine Dining, Wine Tasting)\n- Urban Entertainment & Nightlife: [ENTERTAINMENT_LIST] (e.g., Nightlife, Live Music, Rooftop Bars, Theater)\n- Sightseeing & Culture: [SIGHTSEEING_LIST] (e.g., Museums, Art Galleries, Historical Sites, Architecture, Nature Parks)\n- Relaxation & Wellness: [RELAXATION_LIST] (e.g., Spa & Wellness, Massage, Yoga, Beach Relaxation)\n\n**REQUIREMENTS:**\n1. Create a day-by-day itinerary (Day 1, Day 2, etc.) with morning, afternoon, and evening activities\n2. Include specific venue names, addresses, and brief descriptions for each recommendation\n3. Prioritize recommendations based on user interests\n4. Include restaurants with specific dish recommendations and locations\n5. Add transportation tips between locations\n6. Include estimated time spent at each location\n7. Add insider tips and local secrets\n8. Consider opening hours and seasonal factors\n9. Include backup indoor activities for bad weather\n\n**OUTPUT FORMAT (JSON):**\n```json\n{\n  \"cityName\": \"[CITY_NAME]\",\n  \"tripDuration\": \"[X] days\",\n  \"overview\": \"Brief exciting description of what makes this city special for this traveler\",\n  \"mustDoAttractions\": [\n    {\n      \"name\": \"Specific venue name\",\n      \"location\": \"Full address\",\n      \"description\": \"Why it's perfect for user's interests\",\n      \"estimatedTime\": \"2-3 hours\",\n      \"bestTimeToVisit\": \"Morning/Afternoon/Evening\",\n      \"insiderTip\": \"Local secret or pro tip\"\n    }\n  ],\n  \"foodAndDrinks\": [\n    {\n      \"restaurantName\": \"Specific restaurant name\",\n      \"location\": \"Full address\", \n      \"cuisine\": \"Type of cuisine\",\n      \"mustTryDishes\": [\"Dish 1\", \"Dish 2\"],\n      \"priceRange\": \"$/$$/$$$/$$$$\",\n      \"specialtyNote\": \"Why this place is special\",\n      \"bestTime\": \"Breakfast/Lunch/Dinner/Snack\"\n    }\n  ],\n  \"dayByDayItinerary\": [\n    {\n      \"day\": 1,\n      \"theme\": \"Exploring Historic [City] / Cultural Immersion / etc.\",\n      \"morning\": {\n        \"time\": \"9:00 AM - 12:00 PM\",\n        \"activity\": \"Specific activity name\",\n        \"location\": \"Venue name and address\",\n        \"description\": \"What you'll do and why it's perfect for your interests\",\n        \"transportTip\": \"How to get there from hotel/previous location\"\n      },\n      \"afternoon\": {\n        \"time\": \"1:00 PM - 5:00 PM\", \n        \"activity\": \"Specific activity name\",\n        \"location\": \"Venue name and address\",\n        \"description\": \"Detailed description\",\n        \"lunchRecommendation\": {\n          \"restaurant\": \"Restaurant name\",\n          \"location\": \"Address\",\n          \"dish\": \"Specific dish to try\"\n        }\n      },\n      \"evening\": {\n        \"time\": \"6:00 PM - 10:00 PM\",\n        \"activity\": \"Specific activity name\", \n        \"location\": \"Venue name and address\",\n        \"description\": \"What makes this perfect for evening\",\n        \"dinnerRecommendation\": {\n          \"restaurant\": \"Restaurant name\",\n          \"location\": \"Address\", \n          \"speciality\": \"What they're known for\"\n        }\n      }\n    }\n  ],\n  \"hotelRecommendations\": [\n    {\n      \"name\": \"Specific hotel name\",\n      \"location\": \"Area/neighborhood\", \n      \"priceRange\": \"$/$$/$$$/$$$$\",\n      \"whyRecommended\": \"Based on user interests and itinerary\",\n      \"nearbyAttractions\": [\"Attraction 1\", \"Attraction 2\"]\n    }\n  ],\n  \"transportationTips\": {\n    \"gettingToCity\": \"Best way to reach the city\",\n    \"gettingAround\": \"Best local transportation options\",\n    \"costSavingTips\": \"Transportation cost-saving advice\",\n    \"downloadApps\": [\"App 1\", \"App 2\"]\n  },\n  \"localInsiderTips\": [\n    \"Tip 1: Specific actionable advice\",\n    \"Tip 2: Hidden gem or local secret\", \n    \"Tip 3: Cultural etiquette or customs\",\n    \"Tip 4: Best times to avoid crowds\",\n    \"Tip 5: Money-saving or experience-enhancing tip\"\n  ],\n  \"weatherConsiderations\": {\n    \"seasonalTips\": \"What to expect during travel dates\",\n    \"backupIndoorActivities\": [\"Activity 1\", \"Activity 2\"],\n    \"whatToPack\": [\"Essential items for the season\"]\n  },\n  \"budgetEstimate\": {\n    \"dailyFoodBudget\": \"$X - $Y per person\",\n    \"attractionsCost\": \"$X - $Y total\", \n    \"transportationCost\": \"$X - $Y per day\",\n    \"totalEstimate\": \"$X - $Y for entire trip\"\n  }\n}\n\ncity - {{ $json.body.cityName }}\nstart date - {{ $json.body.startDate }}\nend date - {{ $json.body.endDate}}\ntrip name - {{ $json.body.tripName }}\nno of days - {{ $json.body.numberOfDays }}\nactivities - {{ $json.body.activities }}\nfood and drinks - {{ $json.body.foodDrinks }}\nentertainment - {{ $json.body.entertainment }}\nsightseeing - {{ $json.body.sightseeing }}\nrelaxation - {{ $json.body.relaxation }}\nall interests - {{ $json.body.allInterests }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "79d721d2-1912-4a37-acde-502f41f2949a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        288,
+        208
+      ],
+      "id": "11243505-f39e-4b99-abda-bbbd53efc4b1",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "zBxSvNMCfHabAefI",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "5a2b14ec-6a5d-436b-89fd-5675a268a6c4",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "7721a430-54d5-43e8-bc8f-81af6bc706ec",
+      "name": "Webhook",
+      "webhookId": "5a2b14ec-6a5d-436b-89fd-5675a268a6c4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        768,
+        0
+      ],
+      "id": "a88d6a3d-17ae-4494-83b6-ddbdfae8c880",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "333238e9183392d446ae7ff8a064a87df6c18a0cea928375c2469810c69c6923"
+  }
+}

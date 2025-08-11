@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.vapi.ai/call",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer <your-api-key>"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"assistantId\": \"id\",\n\"phoneNumberId\": \"id\",\n\"customer\": {\n\"number\": \"+91....\"\n},\n\"name\": \"Optional label for your call\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "f8099002-77db-4de7-8191-3ff46c03ed03",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0c11cdc5-8085-4cba-a119-869630504a55",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b85a76b2-b173-45d0-ae67-d267ec810828",
+      "name": "Webhook",
+      "webhookId": "0c11cdc5-8085-4cba-a119-869630504a55"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "333238e9183392d446ae7ff8a064a87df6c18a0cea928375c2469810c69c6923"
+  }
+}

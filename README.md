@@ -1,5 +1,18 @@
 # TravelEase - Comprehensive Travel Booking Platform
 
+## 🏆 Hackathon Victory Story
+
+This project was built in under 48 hours and **won the hackathon**, earning us **₹100,000 INR**! Our success came from a combination of innovative API integrations and last-minute creative additions that captivated the judges and audience.
+
+Key winning factors included:
+- **Flight & Hotel APIs**: Seamless integration with Skyscanner and TripAdvisor for real-time booking
+- **VAPI Integration**: Real-time outbound calling system for customer engagement
+- **N8N Workflows**: Automated business processes and lead management
+- **Parallel Universe**: Our last-minute breakthrough idea - an AI-powered [alternate reality trip planner](https://github.com/PavitarSinghArneja/parallel-worlds-trip) that generates travel itineraries based on different life scenarios. This creative feature was the crowd favorite and sealed our victory!
+
+The combination of practical travel booking functionality with imaginative AI-driven experiences proved to be the winning formula that set us apart from the competition.
+
+---
 
 TravelEase is a modern, full-stack travel booking and planning platform that combines AI-powered trip planning with comprehensive booking capabilities for flights, hotels, and vacation packages.
 
